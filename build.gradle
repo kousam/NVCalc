@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+}
+
+
+application{
+    mainClass = 'org.kousam.main.MyFXApp'
+}
+
+
+javafx {
+    version = '12'
+    modules = [ 'javafx.controls']
+
+}
+
+compileJava.options.encoding = 'UTF-8'
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+
+group 'org.kousam'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'org.apache.poi:poi-ooxml:5.0.0'
+}
+
+test {
+    useJUnitPlatform()
+}
